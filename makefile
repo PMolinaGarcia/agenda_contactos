@@ -11,7 +11,7 @@ compilar:limpiar
 
 jar:compilar
 	jar cvfm $(JAR_FILE) manifest.txt  -C  $(OUT_DIR) .
-ejecutar:compilar
+ejecutar:
 	java -cp $(OUT_DIR) $(MAIN_CLASS)
 limpiar:
 	rm -rf $(OUT_DIR)
