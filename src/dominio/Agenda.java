@@ -148,10 +148,13 @@ public class Agenda implements Serializable {
      */
     public void csv(){
         try{
-            ObjectOutputStream oo = new ObjectOutputStream(new FileOutputStream("agenda.csv"));
-            oo.writeObject(this);
-            oo.close();
+            FileWriter fw = new FileWriter("agenda.csv");
+            for (Contacto contacto : lista)
+                fw.write(contacto.getNombre() + ","
+                +contacto.getApellido()+","+contacto.getTelefono()+","+contacto.getEmail()+","+contacto.getFavorito());
+            fw.close();
             System.out.print("Archivo CSV creado con exito");
+
         }
         catch(Exception e){
             e.printStackTrace();
