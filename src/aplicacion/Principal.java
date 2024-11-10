@@ -10,7 +10,8 @@ package aplicacion;
 import interfaz.*;
 
 /**
- * Definición de la clase en sí.
+ * La clase Principal es la responsable de la ejecución.
+ * En la clase Principal es necesario tener acceso a la interfaz, por lo que se importa.
  */
 public class Principal {
     /**

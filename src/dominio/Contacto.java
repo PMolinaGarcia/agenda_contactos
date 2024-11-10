@@ -16,7 +16,8 @@ import java.io.*;
 //Definimos la clase
 
 /**
- * Aquí se define la clase en sí, y se le pide que implemente Serializable de la librería importada.
+ * Contacto es la clase más básica dentro de este programa; es aquello con lo que trabajamos, principalmente.
+ * En este caso, el programa consiste en una agenda de contactos.
  * Serializable es necesario para el toString final y para la función de guardado.
  */
 public class Contacto implements Serializable{
@@ -34,10 +35,10 @@ public class Contacto implements Serializable{
 
     /**
      * El constructor utilizado para asignar unos valores iniciales a cada atributo es este.
-     * @param nombre: el nombre del contacto. Si el contacto tiene más de un nombre, se deben escribir separados por espacios, ya que se cuenta como un solo string porque la separación entre órdenes y atributos y entre atributos viene dada por comas (,).
-     * @param apellido: el apellido del contacto. Dado que puede tener más de uno, se separan con espacios porque la separación entre órdenes y atributos y entre atributos se hace con comas (,).
-     * @param telefono: el número de teléfono del contacto. Es un String y no un Int porque su tratamiento final es como el de un String, ya que no hay que hacer operaciones con este número.
-     * @param email: el correo electrónico del contacto.
+     * @param nombre el nombre del contacto. Si el contacto tiene más de un nombre, se deben escribir separados por espacios, ya que se cuenta como un solo string porque la separación entre órdenes y atributos y entre atributos viene dada por comas (,).
+     * @param apellido el apellido del contacto. Dado que puede tener más de uno, se separan con espacios porque la separación entre órdenes y atributos y entre atributos se hace con comas (,).
+     * @param telefono el número de teléfono del contacto. Es un String y no un Int porque su tratamiento final es como el de un String, ya que no hay que hacer operaciones con este número.
+     * @param email el correo electrónico del contacto.
      * El único de loss valores que es un poco distinto es el del boolean (favorito); como queremos agregar manualmente un contacto a favoritos, por defecto no lo será.
      * Además, favorito no se añade cuando agregamos un contacto, sino que se realiza con otra función distinta, por esto no se le llama en el paréntesis.
      */
@@ -55,8 +56,8 @@ public class Contacto implements Serializable{
      * Este constructor se utiliza mediante sobrecarga para realizar operaciones sobre un contacto sin necesidad de escribir cada dato.
      * Vemos de vital importancia este constructor para la búsqueda por nombre, ya que en un caso real podríamos no saber datos como el teléfono o el email del contacto.
      *
-     * @param nombre: el nombre del contacto. Si el contacto tiene más de un nombre, se deben escribir separados por espacios, ya que se cuenta como un solo string porque la separación entre órdenes y atributos y entre atributos viene dada por comas (,).
-     * @param apellido: el apellido del contacto. Dado que puede tener más de uno, se separan con espacios porque la separación entre órdenes y atributos y entre atributos se hace con comas (,).
+     * @param nombre el nombre del contacto. Si el contacto tiene más de un nombre, se deben escribir separados por espacios, ya que se cuenta como un solo string porque la separación entre órdenes y atributos y entre atributos viene dada por comas (,).
+     * @param apellido el apellido del contacto. Dado que puede tener más de uno, se separan con espacios porque la separación entre órdenes y atributos y entre atributos se hace con comas (,).
      */
     public Contacto(String nombre, String apellido){
         this.nombre=nombre;
@@ -73,7 +74,7 @@ public class Contacto implements Serializable{
 
     /**
      * Método setter del nombre del contacto para asignar un valor a partir de un String.
-     * @param nombre: el nombre del contacto.
+     * @param nombre el nombre del contacto.
      * @return El contacto con el nuevo nombre asignado.
      */
     //Métodos setter
@@ -83,7 +84,7 @@ public class Contacto implements Serializable{
     }
     /**
      * Método setter del apellido del contacto para asignar un valor a partir de un String.
-     * @param apellido: el apellido del contacto.
+     * @param apellido el apellido del contacto.
      * @return El contacto con el nuevo apellido asignado.
      */
     public Contacto setApellido(String apellido){
@@ -92,8 +93,8 @@ public class Contacto implements Serializable{
     }
     /**
      * Método setter del teléfono del contacto para asignar un valor a partir de un String.
-     * @param telefono: el teléfono del contacto.
-     * @return El contacto con el nuevo teléfono asignado.
+     * @param telefono el teléfono del contacto.
+     * @return El contacto con el nuevo número de teléfono asignado.
      */
     public Contacto setTelefono(String telefono){
         this.telefono=telefono;
@@ -101,8 +102,8 @@ public class Contacto implements Serializable{
     }
     /**
      * Método setter del correo electrónico del contacto para asignar un valor a partir de un String.
-     * @param email: el correo electrónico del contacto.
-     * @return El contacto con el nuevo número de teléfono asignado.
+     * @param email el correo electrónico del contacto.
+     * @return El contacto con el nuevo correo electrónico asignado.
      */
     public Contacto setEmail(String email){
         this.email=email;
@@ -119,28 +120,28 @@ public class Contacto implements Serializable{
     //Métodos getter
 
     /**
-     * Método getter para obtener el nombre de un contacto
+     * Método getter para obtener el nombre de un contacto.
      * @return El nombre del contacto.
      */
     public String getNombre() {
         return nombre;
     }
     /**
-     * Método getter para obtener el apellido de un contacto
+     * Método getter para obtener el apellido de un contacto.
      * @return El apellido del contacto.
      */
     public String getApellido() {
         return apellido;
     }
     /**
-     * Método getter para obtener el número de teléfono de un contacto
+     * Método getter para obtener el número de teléfono de un contacto.
      * @return El número de teléfono del contacto.
      */
     public String getTelefono() {
         return telefono;
     }
     /**
-     * Método getter para obtener el correo electrónico de un contacto
+     * Método getter para obtener el correo electrónico de un contacto.
      * @return El correo electrónico del contacto.
      */
     public String getEmail(){
@@ -157,7 +158,7 @@ public class Contacto implements Serializable{
     /**
      * Método String que indica de forma visible por pantalla si un contacto es favorito o no.
      * Cuando el contacto es favorito, se imprime el mensaje "Favorito" por pantalla; cuando no lo es, el mensaje está vacío, por lo que no aparece.
-     * @return El mensaje de estado del atributo favorito según si es verdadero o falso ("Favorito" o vacío)
+     * @return El mensaje de estado del atributo favorito según si es verdadero o falso ("Favorito" o vacío).
      */
     public String esFavorito(){
         if (favorito==true){
@@ -172,7 +173,7 @@ public class Contacto implements Serializable{
     /**
      * El método toString, que incorpora a un StringBuilder todos los atributos asignados al contacto.
      * Utilizamos un StringBuilder porque, si no, mediante Strings creamos una única cadena cada vez que queda inmutable y se generan copias, lo que es menos eficiente.
-     * @return los datos (atributos) del contacto.
+     * @return Los datos (atributos) del contacto.
      */
 
     public String toString(){
@@ -204,8 +205,8 @@ public class Contacto implements Serializable{
      * Si el objeto es nulo, se retorna falso, ya que un objeto nunca puede ser nulo. O existe, o no existe, pero si existe no puede ser nulo.
      * Si el objeto dado tiene una clase distinta al objeto ya creado, también se retorna falso, ya que no podemos comparar objetos de distintas clases; sería algo que no tendría sentido.
      * Por último, si no se da ninguna de estas condiciones, se le atribuyes a un nuevo contacto c los valores del contacto o y se comparan el nombre y el apellido.
-     * @param o: el objeto que se está utilizando.
-     * @return valores booleanos falsos o la comparación del nombre y apellido.
+     * @param o el objeto que se está utilizando.
+     * @return Valores booleanos falsos o la comparación del nombre y apellido.
      */
     public boolean equals (Object o){
         //Escribimos Object o porque sobreescribimos el método equals de la clase object. Sobreescribir NO es sobrecargar
@@ -225,7 +226,7 @@ public class Contacto implements Serializable{
     /**
      * Método hashCode para "cifrar" la dirección de almacenamiento del contacto para que no aparezcan dos iguales.
      * Se realizan algunas operaciones con el hashCode original de cada atributo para dar dos números diferentes.
-     * @return el valor hashCode del nombre tras realizarse unas operaciones y el del apellido.
+     * @return El valor hashCode del nombre tras realizarse unas operaciones y el del apellido.
      */
     //Internamente, utiliza el diccionario para saber en qué dirección almacenar el contacto. LO MANEJA JAVA INTERNAMENTE, NO YO.
     public int hashCode (){

@@ -14,7 +14,7 @@ import java.util.*;
 import dominio.*;
 
 /**
- * Aquí se define la clase en sí.
+ * Interfaz es la clase que se encarga de la interacción máquina-usuario. Aquí se crean métodos para utilizar los creados en la agenda y en el contacto.
  * Se crea el atributo de la agenda, que es de tipo Agenda.
  * Se crea también un escáner, que sirve para leer las entradas por teclado que haga el usuario.
  */
@@ -32,7 +32,7 @@ public class Interfaz{
     /**
      * Método para la lectura de la instrucción pasada por teclado a partir de un Array.
      * Se escanea la instrucción como String.
-     * @return la instrucción dividida según los separadores establecidos para la instrucción; en este caso, comas (,).
+     * @return La instrucción dividida según los separadores establecidos para la instrucción; en este caso, comas (,).
      */
     //Los corchetes son porque esto es un Array
     public String[] leerInstruccion() {
@@ -48,8 +48,8 @@ public class Interfaz{
      * Si la primera palabra previa a una coma se corresponde con el mensaje determinado, se ejecutarán distintas instrucciones.
      * Siempre, dentro del try, se retorna true del boolean para que se siga ejecutando el procesamiento de instrucciones y, por tanto, el programa; sin embargo, en la opción de salir se devuelve un valor false para parar el programa tras guardar los datos.
      * En el catch, si se da una excepción, se envía un mensaje de error, pero que siga funcionando el programa.
-     * @param instruccion: las palabras pasadas por terminal por parte del usuario. [i], donde i es el índice de posición de la palabra, siempre separadas entre comas (,).
-     * @return valores booleanos para que el programa siga funcionando (true) o se pare (false).
+     * @param instruccion las palabras pasadas por terminal por parte del usuario. [i], donde i es el índice de posición de la palabra, siempre separadas entre comas (,).
+     * @return Valores booleanos para que el programa siga funcionando (true) o se pare (false).
      */
 
     public boolean procesarInstruccion(String [] instruccion) {
@@ -124,10 +124,10 @@ public class Interfaz{
     /**
      * Método para añadir contactos.
      * Se llama al método para añadir de la clase agenda.
-     * @param nombre: nombre del nuevo contacto.
-     * @param apellido: apellido del nuevo contactp.
-     * @param numero: número de teléfono del nuevo contacto.
-     * @param email: correo electrónico del nuevo contacto.
+     * @param nombre nombre del nuevo contacto.
+     * @param apellido apellido del nuevo contactp.
+     * @param numero número de teléfono del nuevo contacto.
+     * @param email correo electrónico del nuevo contacto.
      */
     public void add(String nombre, String apellido, String numero, String email) {
         agenda.anniadir(new Contacto(nombre, apellido, numero, email));
@@ -136,8 +136,8 @@ public class Interfaz{
     /**
      * Método para eliminar contactos.
      * Se llama al método para eliminar de la clase agenda.
-     * @param nombre: nombre del contacto que se va a eliminar.
-     * @param apellido: apellido del contacto que se va a eliminar.
+     * @param nombre nombre del contacto que se va a eliminar.
+     * @param apellido apellido del contacto que se va a eliminar.
      */
     public void eliminar(String nombre, String apellido) {
         agenda.borrar(new Contacto(nombre, apellido));

@@ -13,7 +13,7 @@ import java.util.*;
 import java.io.*;
 
 /**
- * Aquí se define la clase en sí, y se le pide que implemente Serializable de la librería importada.
+ * Agenda es la clase que contiene a Contacto. Aquí se crean métodos para operar con los contactos mediante ArrayLists y agrupamos contactos.
  * Serializable es necesario para el toString final y para la función de guardado.
  */
 public class Agenda implements Serializable {
@@ -37,11 +37,11 @@ public class Agenda implements Serializable {
 
     /**
      * El método para buscar contactos dentro de la lista de contactos que tiene la agenda.
-     * Definimos un atributo p que sea de tipo Int porque es el índice de la posición de un contacto
+     * Definimos un atributo p que sea de tipo Int porque es el índice de la posición de un contacto.
      * Después, si ese índice es igual a -1, lo cual quiere decir que el objeto no está en ese ArrayList, aparece un mensaje que indica que los valores introducidos no se corresponden con ningún contacto de la lista y se retorna un valor nulo.
      * Si el objeto está en la lista, aparece el contacto deseado con todos los sus atributos.
-     * @param contacto: el contacto buscado.
-     * @return los datos del contacto encontrado.
+     * @param contacto el contacto buscado.
+     * @return Los datos del contacto encontrado.
      */
     //En este método nos estamos fiando de ArrayList. Aquí necesitamos redefinir el método equals.
     public Contacto buscar(Contacto contacto) {
@@ -70,7 +70,7 @@ public class Agenda implements Serializable {
     /**
      * Método para crear una cadena con todos los contactos que son favoritos.
      * Utilizamos un StringBuilder que se componga de cada contacto que sea favorito, de tal forma que se pueda modificar si pasan a ser o dejan de ser favoritos los contactos.
-     * @return la cadena con todos los contactos favoritos. Solo se retorna el nombre; si se buscan más datos, que empleen el método para buscar o la lista completa.
+     * @return La cadena con todos los contactos favoritos. Solo se retorna el nombre; si se buscan más datos, que empleen el método para buscar o la lista completa.
      */
     public String favorito(){
         StringBuilder cadena = new StringBuilder();
@@ -165,7 +165,7 @@ public class Agenda implements Serializable {
      * En este caso, en el try se crea un flujo de entrada para leer el mismo archivo escrito.
      * Después, se crea un nuevo objeto agenda en el que se escribe lo leído en el objeto del flujo de salida de entrada del fichero y se retorna esa agenda nueva.
      * En el catch, se redirige la excepción a un mensaje para corregir la orden o que el programador arregle el programa.
-     * @return en el try, un objeto agenda con los datos leídos; en el catch, un nuevo objeto del tipo agenda.
+     * @return En el try, un objeto agenda con los datos leídos; en el catch, un nuevo objeto del tipo agenda.
      */
     public static Agenda leer() {
         try {
@@ -181,8 +181,8 @@ public class Agenda implements Serializable {
     /**
      * Método para añadir contactos.
      * Se añade un contacto en la lista y se indica mediante un mensaje.
-     * @param contacto: el contacto que se va a añadir.
-     * @return el objeto agenda con el contacto agregado.
+     * @param contacto el contacto que se va a añadir.
+     * @return El objeto agenda con el contacto agregado.
      */
 
     public Agenda anniadir(Contacto contacto){
@@ -206,8 +206,8 @@ public class Agenda implements Serializable {
      * Método para borrar mediante un booleano.
      * Se explora si la lista contiene al contacto, porque, si no, no hay nada que eliminar.
      * Si la lista contiene el contacto especificado, se elimina de la lista y se anuncia con un mensaje
-     * @param contacto: el contacto que se va a borrar.
-     * @return un valor booleano en función de si se puede realizar la operación (true) o no (false).
+     * @param contacto el contacto que se va a borrar.
+     * @return Un valor booleano en función de si se puede realizar la operación (true) o no (false).
      */
     public boolean borrar(Contacto contacto){
         if (lista.contains(contacto)){
@@ -220,7 +220,7 @@ public class Agenda implements Serializable {
 
     /**
      * Método para contar la cantidad de contactos que hay en la lista a partir del tamaño de esta.
-     * @return
+     * @return El tamaño de la lista (la cantidad de elementos que contiene).
      */
     public int contarContactos(){
         return lista.size();
@@ -230,7 +230,7 @@ public class Agenda implements Serializable {
      * El método toString, que incorpora a un StringBuilder todos contactos presentes dentro de la lista.
      * Utilizamos un StringBuilder porque, si no, mediante Strings creamos una única cadena cada vez que queda inmutable y se generan copias, lo que es menos eficiente.
      * Se emplea un bucle for que recorre todos los contactos de la lista y va añadiendo cada uno.
-     * @return los datos (contactos) de la agenda.
+     * @return Los datos (contactos) de la agenda.
      */
     public String toString(){
         StringBuilder datos = new StringBuilder();
