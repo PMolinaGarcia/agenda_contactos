@@ -51,7 +51,7 @@ public class Agenda implements Serializable {
             System.out.print("El contacto no se encuentra en la lista o no se ha buscado correctamente");
             return null;
         } else {
-            System.out.print("El contacto ha sido encontrado:");
+            System.out.print("\n\nEl contacto ha sido encontrado:");
             System.out.print("\n\n"+lista.get(p));
             return lista.get(p);
         }
@@ -99,7 +99,7 @@ public class Agenda implements Serializable {
         Contacto c = buscar(contacto);
         if (c!=null){
             c.setFavorito(true);
-            System.out.print("El contacto "+contacto.getNombre()+" "+contacto.getApellido()+" ha sido agregado a favoritos");
+            System.out.print("El contacto "+contacto.getNombre()+" "+contacto.getApellido()+" ha sido agregado a favoritos\n\n");
         }
         return false;
     }
@@ -115,7 +115,7 @@ public class Agenda implements Serializable {
         Contacto c = buscar(contacto);
         if (c != null) {
             c.setFavorito(false);
-            System.out.print("El contacto " + contacto.getNombre() + " " + contacto.getApellido() + " ha sido eliminado de favoritos");
+            System.out.print("El contacto " + contacto.getNombre() + " " + contacto.getApellido() + " ha sido eliminado de favoritos\n\n");
         }
         return false;
     }

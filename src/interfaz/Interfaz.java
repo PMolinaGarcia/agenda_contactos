@@ -98,7 +98,7 @@ public class Interfaz{
      * Imprime por pantalla todas las opciones disponibles, lo que hace cada una e incluso en algunas ejemplos de uso.
      */
     public void help() {
-        System.out.print("Las opciones disponibles son las siguientes: " +
+        System.out.print("\n\n Las opciones disponibles son las siguientes: " +
                 "\n - help: para desplegar las opciones disponibles de este programa. " +
                 "\n - list: para ver todos los elementos de la agenda. " +
                 "\n - add: para annadir contactos. \n EJEMPLO: add,Pablo,Molina Garcia,764336276,pamogar12@gmail.com" +
@@ -107,6 +107,7 @@ public class Interfaz{
                 "\n - save: para guardar los datos en un archivo de creacion automatica. " +
                 "\n - favs: para ver la lista de contactos marcados como favoritos. " +
                 "\n - addFav: para annadir un contacto a favoritos. \n EJEMPLO: addFav,Pablo,Molina Garcia" +
+                "\n - remFav: para eliminar un contacto de favoritos. \n EJEMPLO: remFav,Pablo,Molina Garcia" +
                 "\n - exit: para salir y guardar automaticamente los datos en un archivo de guardado. " +
                 "\n\n IMPORTANTE: para cada comando, debe escribir los atributos separados por comas (,). En el caso de haber dos apellidos, estos se separan entre si con un espacio. \n");
     }
@@ -116,7 +117,7 @@ public class Interfaz{
      * Indica la cantidad de comandos con el método contarContactos de la clase agenda y luego imprime el toString de la agenda con todos los contactos.
      */
     public void list() {
-        System.out.print("\n\n La cantidad de contactos es: "+agenda.contarContactos());
+        System.out.print("\n\n La cantidad de contactos es:"+" "+agenda.contarContactos());
         System.out.println(agenda.toString());
     }
 
