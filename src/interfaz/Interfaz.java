@@ -109,7 +109,7 @@ public class Interfaz{
                 "\n - addFav: para annadir un contacto a favoritos. \n EJEMPLO: addFav,Pablo,Molina Garcia" +
                 "\n - remFav: para eliminar un contacto de favoritos. \n EJEMPLO: remFav,Pablo,Molina Garcia" +
                 "\n - exit: para salir y guardar automaticamente los datos en un archivo de guardado. " +
-                "\n\n IMPORTANTE: para cada comando, debe escribir los atributos separados por comas (,). En el caso de haber dos apellidos, estos se separan entre si con un espacio. \n");
+                "\n\n IMPORTANTE: para cada comando, debe escribir la instruccion y los atributos separados por comas (,). En el caso de haber dos nombre o apellidos en un mismo contacto, estos se separan entre si con un espacio. \n");
     }
 
     /**
