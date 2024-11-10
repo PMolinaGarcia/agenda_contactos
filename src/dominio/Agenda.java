@@ -151,7 +151,7 @@ public class Agenda implements Serializable {
             FileWriter fw = new FileWriter("agenda.csv");
             for (Contacto contacto : lista)
                 fw.write(contacto.getNombre() + ","
-                +contacto.getApellido()+","+contacto.getTelefono()+","+contacto.getEmail()+","+contacto.getFavorito());
+                +contacto.getApellido()+","+contacto.getTelefono()+","+contacto.getEmail()+","+contacto.getFavorito()+"\n");
             fw.close();
             System.out.print("Archivo CSV creado con exito");
 
