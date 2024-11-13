@@ -12,6 +12,7 @@
 package interfaz;
 import java.util.*;
 import dominio.*;
+import excepciones.*;
 
 /**
  * Interfaz es la clase que se encarga de la interacción máquina-usuario. Aquí se crean métodos para utilizar los creados en la agenda y en el contacto.
@@ -82,8 +83,10 @@ public class Interfaz{
                     System.out.print("Error de peticion. Escriba una opcion de las disponibles en la ayuda.");
                     help();
                     return true;
-                }}
-                catch(Exception e){
+                }
+
+                }
+                  catch(Exception e){
                     System.out.println("Error en la escritura de la instruccion. Recuerda que a cada comando deben seguirle los atributos (de haberlos) separados por comas (,).");
                 }
 
@@ -130,7 +133,11 @@ public class Interfaz{
      * @param email correo electrónico del nuevo contacto.
      */
     public void add(String nombre, String apellido, String numero, String email) {
+        try{
         agenda.anniadir(new Contacto(nombre, apellido, numero, email));
+        } catch (ContactoDuplicado e){
+            System.out.println("El contacto " + e.getContactoDuplicado().getNombre() +" "+ e.getContactoDuplicado().getApellido() + " ya existe.");
+        }
     }
 
     /**
@@ -140,7 +147,10 @@ public class Interfaz{
      * @param apellido apellido del contacto que se va a eliminar.
      */
     public void eliminar(String nombre, String apellido) {
-        agenda.borrar(new Contacto(nombre, apellido));
+        try{
+            agenda.borrar(new Contacto(nombre, apellido));
+        } catch (ContactoNoEncontrado e) {
+            System.out.println("El contacto "+e.getContactoNoEncontrado().getNombre()+" "+e.getContactoNoEncontrado().getApellido() + " no ha sido encontrado.");
+            }
+        }
     }
-
-}

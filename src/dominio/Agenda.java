@@ -11,6 +11,7 @@
 package dominio;
 import java.util.*;
 import java.io.*;
+import excepciones.*;
 
 /**
  * Agenda es la clase que contiene a Contacto. Aquí se crean métodos para operar con los contactos mediante ArrayLists y agrupamos contactos.
@@ -48,7 +49,7 @@ public class Agenda implements Serializable {
         //IndexOf devuelve la posición en la que está el objeto introducida. Si no lo encuentra, devuelve -1; por eso ponemos la condición con -1
         int p = lista.indexOf(contacto);
         if (p == -1) {
-            System.out.print("El contacto no se encuentra en la lista o no se ha buscado correctamente");
+            System.out.print("El contacto no se encuentra en la lista o no se ha buscado correctamente.");
             return null;
         } else {
             System.out.print("\n\nEl contacto ha sido encontrado:");
@@ -99,7 +100,7 @@ public class Agenda implements Serializable {
         Contacto c = buscar(contacto);
         if (c!=null){
             c.setFavorito(true);
-            System.out.print("El contacto "+contacto.getNombre()+" "+contacto.getApellido()+" ha sido agregado a favoritos\n\n");
+            System.out.print("El contacto "+contacto.getNombre()+" "+contacto.getApellido()+" ha sido agregado a favoritos.\n\n");
         }
         return false;
     }
@@ -188,10 +189,16 @@ public class Agenda implements Serializable {
      * @return El objeto agenda con el contacto agregado.
      */
 
-    public Agenda anniadir(Contacto contacto){
-        lista.add(contacto);
-        System.out.println("Se ha agregado el contacto "+ contacto.getNombre()+" " + contacto.getApellido());
-        return this;
+    public Agenda anniadir(Contacto contacto) throws ContactoDuplicado{
+        if (lista.contains(contacto)) {
+            throw new ContactoDuplicado(contacto);
+        }
+        else {
+            lista.add(contacto);
+            System.out.println("Se ha agregado el contacto " + contacto.getNombre() + " " + contacto.getApellido());
+            return this;
+        }
+
     }
 /* Método para eliminar mediante posición
     public boolean eliminar(Contacto contacto){
@@ -212,13 +219,14 @@ public class Agenda implements Serializable {
      * @param contacto el contacto que se va a borrar.
      * @return Un valor booleano en función de si se puede realizar la operación (true) o no (false).
      */
-    public boolean borrar(Contacto contacto){
+    public boolean borrar(Contacto contacto) throws ContactoNoEncontrado{
         if (lista.contains(contacto)){
             lista.remove(contacto);
             System.out.println("Se ha eliminado el contacto "+ contacto.getNombre()+ " " + contacto.getApellido());
             return true;
+        }else{
+            throw new ContactoNoEncontrado(contacto);
         }
-        return false;
     }
 
     /**
